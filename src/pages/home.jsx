@@ -11,7 +11,7 @@ function Home() {
         <div>
             <h1>HomePage</h1>
             <p>Welcome to the web application</p>
-            <div className="sel-btn">
+            {/* <div className="sel-btn">
                 <button onClick={() => setShow("effect")}>useEffect</button>
                 <button onClick={() => setShow("state")}>useState</button>
                 <button onClick={() => setShow("clear")}>Clear</button>
@@ -21,7 +21,7 @@ function Home() {
             </div>
             {show === "effect" && <UseEffect />}
             {show === "state" && <UseState />}
-            {show === "clear" && null}
+            {show === "clear" && null} */}
         </div>
     );
 }

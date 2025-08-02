@@ -8,7 +8,8 @@ import Login from './pages/login'
 import Register from './pages/register'
 import UseState from './pages/30-july/useState'
 import UseEffect from './pages/30-july/useEffect'
-import useParams from './pages/01-aug/useParams'
+import UseParams from './pages/01-aug/useParams'
+import Product from './pages/01-aug/product'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/navbar'
 
@@ -17,16 +18,16 @@ function App() {
   return (
     <div>
       <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/use-state" element={<UseState />} />
-      <Route path="/use-effect" element={<UseEffect />} />
-      <Route path="/useParams" element={<products />} />
-      <Route path="/useParams/:productID" element={<useParams />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/use-state" element={<UseState />} />
+        <Route path="/use-effect" element={<UseEffect />} />
+        <Route path="/use-params" element={<UseParams />} />
+        <Route path="/product/:productId" element={<Product />} />
+      </Routes>
 
     </div>
   )
