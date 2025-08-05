@@ -1,0 +1,7 @@
+.inactive-button{
+    background-color: grey;
+}
+
+.active-button{
+    background-color: green;
+}

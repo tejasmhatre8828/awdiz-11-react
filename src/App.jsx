@@ -12,9 +12,13 @@ import UseParams from './pages/01-aug/useParams'
 import Product from './pages/01-aug/product'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/navbar'
+import StyledComponent from './pages/02-aug/StyledComponent'
+import CreateFruit from './pages/02-aug/CreateFruit'
+import Greeting from './pages/02-aug/Greeting'
+import DynamicStyles from './pages/03-aug/DynamicStyles'
 
 function App() {
-
+  const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
       <Navbar />
@@ -26,7 +30,11 @@ function App() {
         <Route path="/use-state" element={<UseState />} />
         <Route path="/use-effect" element={<UseEffect />} />
         <Route path="/use-params" element={<UseParams />} />
-        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/product/:productId" element={<Product cricketers={users} />} />
+        <Route path="/styled-component" element={<StyledComponent />} />
+        <Route path="/create-fruit" element={<CreateFruit />} />
+        <Route path="/greeting" element={<Greeting name = "User" isLoggedIn={false} />} />
+        <Route path="/dynamic-styles" element={<DynamicStyles />} />
       </Routes>
 
     </div>
