@@ -16,6 +16,7 @@ import StyledComponent from './pages/02-aug/StyledComponent'
 import CreateFruit from './pages/02-aug/CreateFruit'
 import Greeting from './pages/02-aug/Greeting'
 import DynamicStyles from './pages/03-aug/DynamicStyles'
+import PageNotFound from './pages/06-aug/PageNotFound'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
@@ -35,6 +36,7 @@ function App() {
         <Route path="/create-fruit" element={<CreateFruit />} />
         <Route path="/greeting" element={<Greeting name = "User" isLoggedIn={false} />} />
         <Route path="/dynamic-styles" element={<DynamicStyles />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
     </div>
