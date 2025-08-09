@@ -18,6 +18,7 @@ import Greeting from './pages/02-aug/Greeting'
 import DynamicStyles from './pages/03-aug/DynamicStyles'
 import PageNotFound from './pages/06-aug/PageNotFound'
 import FakeStore from './pages/06-aug/FakeStore'
+import SingleProduct from './pages/06-aug/SingleProduct'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/dynamic-styles" element={<DynamicStyles />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/fakestore" element={<FakeStore />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   )
