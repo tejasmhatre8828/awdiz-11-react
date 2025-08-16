@@ -19,6 +19,9 @@ import DynamicStyles from './pages/03-aug/DynamicStyles'
 import PageNotFound from './pages/06-aug/PageNotFound'
 import FakeStore from './pages/06-aug/FakeStore'
 import SingleProduct from './pages/06-aug/SingleProduct'
+import UseMemo from './pages/10-aug/UseMemo'
+import UseCallback from './pages/10-aug/UseCallback'
+import UseRef from './pages/13-aug/UseRef'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
@@ -41,6 +44,9 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/fakestore" element={<FakeStore />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/use-memo" element={<UseMemo />} />
+        <Route path="/use-callback" element={<UseCallback />} />
+        <Route path="/use-ref" element={<UseRef />} />
       </Routes>
     </div>
   )
