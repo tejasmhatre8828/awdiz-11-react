@@ -22,12 +22,13 @@ import SingleProduct from './pages/06-aug/SingleProduct'
 import UseMemo from './pages/10-aug/UseMemo'
 import UseCallback from './pages/10-aug/UseCallback'
 import UseRef from './pages/13-aug/UseRef'
+import RegistrationForm from './pages/17-aug/RegistrationForm'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -47,6 +48,7 @@ function App() {
         <Route path="/use-memo" element={<UseMemo />} />
         <Route path="/use-callback" element={<UseCallback />} />
         <Route path="/use-ref" element={<UseRef />} />
+        <Route path="/registrationform" element={<RegistrationForm />} />
       </Routes>
     </div>
   )
