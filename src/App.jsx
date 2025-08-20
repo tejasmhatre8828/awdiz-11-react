@@ -23,6 +23,7 @@ import UseMemo from './pages/10-aug/UseMemo'
 import UseCallback from './pages/10-aug/UseCallback'
 import UseRef from './pages/13-aug/UseRef'
 import RegistrationForm from './pages/17-aug/RegistrationForm'
+import UseReducer from './pages/20-aug/UseReducer'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
@@ -49,6 +50,7 @@ function App() {
         <Route path="/use-callback" element={<UseCallback />} />
         <Route path="/use-ref" element={<UseRef />} />
         <Route path="/registrationform" element={<RegistrationForm />} />
+        <Route path="/use-reducer" element={<UseReducer />} />
       </Routes>
     </div>
   )
