@@ -24,12 +24,13 @@ import UseCallback from './pages/10-aug/UseCallback'
 import UseRef from './pages/13-aug/UseRef'
 import RegistrationForm from './pages/17-aug/RegistrationForm'
 import UseReducer from './pages/20-aug/UseReducer'
+import ContextCounter from './pages/22-aug/ContextCounter'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -51,6 +52,7 @@ function App() {
         <Route path="/use-ref" element={<UseRef />} />
         <Route path="/registrationform" element={<RegistrationForm />} />
         <Route path="/use-reducer" element={<UseReducer />} />
+        <Route path="/context-counter" element={<ContextCounter />} />
       </Routes>
     </div>
   )
