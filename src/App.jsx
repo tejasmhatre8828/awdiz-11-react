@@ -25,12 +25,16 @@ import UseRef from './pages/13-aug/UseRef'
 import RegistrationForm from './pages/17-aug/RegistrationForm'
 import UseReducer from './pages/20-aug/UseReducer'
 import ContextCounter from './pages/22-aug/ContextCounter'
+import CountDownTimer from './pages/23-aug-test/CountDownTimer'
+import TodoList from './pages/23-aug-test/TodoList'
+import ProductList from './pages/23-aug-test/ProductList'
+import AnswerShit from './pages/23-aug-test/AnswerShit'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -53,6 +57,10 @@ function App() {
         <Route path="/registrationform" element={<RegistrationForm />} />
         <Route path="/use-reducer" element={<UseReducer />} />
         <Route path="/context-counter" element={<ContextCounter />} />
+        <Route path="/countdown-timer" element={<CountDownTimer />} />
+        <Route path="/todo-list" element={<TodoList />} />
+        <Route path="/product-list" element={<ProductList />} />
+        <Route path="/answer-shit" element={<AnswerShit />} />
       </Routes>
     </div>
   )
