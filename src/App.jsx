@@ -29,6 +29,8 @@ import CountDownTimer from './pages/23-aug-test/CountDownTimer'
 import TodoList from './pages/23-aug-test/TodoList'
 import ProductList from './pages/23-aug-test/ProductList'
 import AnswerShit from './pages/23-aug-test/AnswerShit'
+import Calculator from './pages/30-aug/Calculator'
+import ShoppingCart from './pages/23-aug-test/ShopingCart'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
@@ -61,6 +63,8 @@ function App() {
         <Route path="/todo-list" element={<TodoList />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/answer-shit" element={<AnswerShit />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/calculator" element={<Calculator />} />
       </Routes>
     </div>
   )

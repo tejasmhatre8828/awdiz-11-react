@@ -13,4 +13,4 @@ const Answers = () => {
     )
 }
 
-export default Answers
+export default Answers;
