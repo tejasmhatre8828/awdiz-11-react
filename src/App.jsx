@@ -27,47 +27,54 @@ import UseReducer from './pages/20-aug/UseReducer'
 import ContextCounter from './pages/22-aug/ContextCounter'
 import CountDownTimer from './pages/23-aug-test/CountDownTimer'
 import TodoList from './pages/23-aug-test/TodoList'
-import ProductList from './pages/23-aug-test/ProductList'
+// import ProductList from './pages/23-aug-test/ProductList'
 import AnswerShit from './pages/23-aug-test/AnswerShit'
-import Calculator from './pages/30-aug/Calculator'
-import ShoppingCart from './pages/23-aug-test/ShopingCart'
+// import Calculator from './pages/30-aug/Calculator'
+import ShoppingCart from './pages/Shopping-cart/ShopingCart'
+import ProductList from './pages/Shopping-cart/listsProduct'
+import Cart from './pages/Shopping-cart/cart'
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
-      {/* <Navbar /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/use-state" element={<UseState />} />
-        <Route path="/use-effect" element={<UseEffect />} />
-        <Route path="/use-params" element={<UseParams />} />
-        <Route path="/product/:productId" element={<Product cricketers={users} />} />
-        <Route path="/styled-component" element={<StyledComponent />} />
-        <Route path="/create-fruit" element={<CreateFruit />} />
-        <Route path="/greeting" element={<Greeting name="User" isLoggedIn={false} />} />
-        <Route path="/dynamic-styles" element={<DynamicStyles />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/fakestore" element={<FakeStore />} />
-        <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/use-memo" element={<UseMemo />} />
-        <Route path="/use-callback" element={<UseCallback />} />
-        <Route path="/use-ref" element={<UseRef />} />
-        <Route path="/registrationform" element={<RegistrationForm />} />
-        <Route path="/use-reducer" element={<UseReducer />} />
-        <Route path="/context-counter" element={<ContextCounter />} />
-        <Route path="/countdown-timer" element={<CountDownTimer />} />
-        <Route path="/todo-list" element={<TodoList />} />
-        <Route path="/product-list" element={<ProductList />} />
-        <Route path="/answer-shit" element={<AnswerShit />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
-        <Route path="/calculator" element={<Calculator />} />
-      </Routes>
-    </div>
-  )
+      <h1>Shopping Cart with Redux</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <ProductList />
+        <Cart />
+        </div>
+        {/* <Navbar /> */}
+        {/* <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/use-state" element={<UseState />} />
+          <Route path="/use-effect" element={<UseEffect />} />
+          <Route path="/use-params" element={<UseParams />} />
+          <Route path="/product/:productId" element={<Product cricketers={users} />} />
+          <Route path="/styled-component" element={<StyledComponent />} />
+          <Route path="/create-fruit" element={<CreateFruit />} />
+          <Route path="/greeting" element={<Greeting name="User" isLoggedIn={false} />} />
+          <Route path="/dynamic-styles" element={<DynamicStyles />} />
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/fakestore" element={<FakeStore />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+          <Route path="/use-memo" element={<UseMemo />} />
+          <Route path="/use-callback" element={<UseCallback />} />
+          <Route path="/use-ref" element={<UseRef />} />
+          <Route path="/registrationform" element={<RegistrationForm />} />
+          <Route path="/use-reducer" element={<UseReducer />} />
+          <Route path="/context-counter" element={<ContextCounter />} />
+          <Route path="/countdown-timer" element={<CountDownTimer />} />
+          <Route path="/todo-list" element={<TodoList />} />
+          <Route path="/product-list" element={<ProductList />} />
+          <Route path="/answer-shit" element={<AnswerShit />} />
+          <Route path="/shopping-cart" element={<ShoppingCart />} /> */}
+          {/* <Route path="/calculator" element={<Calculator />} /> */}
+        {/* </Routes> */}
+      </div>
+      )
 }
 
-export default App
+      export default App
