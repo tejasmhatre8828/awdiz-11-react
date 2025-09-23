@@ -33,16 +33,23 @@ import AnswerShit from './pages/23-aug-test/AnswerShit'
 import ShoppingCart from './pages/Shopping-cart/ShopingCart'
 import ProductList from './pages/Shopping-cart/listsProduct'
 import Cart from './pages/Shopping-cart/cart'
+import Calculator from './pages/Calculator/Calculator'
+import './CalculatorStyle.css'
+
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   return (
     <div>
-      <h1>Shopping Cart with Redux</h1>
+      <h1>Calculator</h1>
+      <div>
+        <Calculator />
+      </div>
+      {/* <h1>Shopping Cart with Redux</h1>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <ProductList />
         <Cart />
-        </div>
+        </div> */}
         {/* <Navbar /> */}
         {/* <Routes>
           <Route path="/" element={<Home />} />

@@ -22,56 +22,49 @@
 // export default Calculator;
 
 
-
-// src/components/Calculator.jsx
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  appendToExpression,
-  calculateResult,
+  inputDigit,
+  chooseOperator,
+  calculate,
   clear,
-} from "../features/calculator/calculatorSlice";
+  percent,
+} from './CalculatorSlice';
+import Button from './Button';
 
-function Calculator() {
+
+const Calculator = () => {
   const dispatch = useDispatch();
-  const { expression, result } = useSelector((state) => state.calculator);
-
-  const handleClick = (value) => {
-    if (value === "C") return dispatch(clear());
-    if (value === "=") return dispatch(calculateResult());
-    dispatch(appendToExpression(value));
-  };
-
-  const buttons = [
-    "%", "CE", "C", "/", 
-    "1/x", "x²", "√", "*",
-    "7", "8", "9", "-",
-    "4", "5", "6", "+",
-    "1", "2", "3", "=",
-    "+/-", "0", ".", 
-  ];
+  const current = useSelector(state => state.calculator.current);
 
   return (
-    <div style={{ border: "1px solid black", marginInline: "35%", padding: "20px" }}>
-      <h1>Calculator</h1>
-      <input
-        style={{ width: "90%", height: "40px", marginBottom: "10px" }}
-        value={result || expression}
-        readOnly
-      />
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-        {buttons.map((btn, index) => (
-          <button
-            key={index}
-            style={{ width: "60px", height: "60px" }}
-            onClick={() => handleClick(btn)}
-          >
-            {btn}
-          </button>
-        ))}
+    <div className="calculator">
+      <div className="display">{current}</div>
+      <div className="buttons">
+        <Button onClick={() => dispatch(clear())}>AC</Button>
+        <Button onClick={() => dispatch(clear())}>C</Button>
+        <Button onClick={() => dispatch(percent())}>%</Button>
+        <Button onClick={() => dispatch(chooseOperator('/'))}>÷</Button>
+        <Button onClick={() => dispatch(chooseOperator('*'))}>×</Button>
+        <Button onClick={() => dispatch(inputDigit('7'))}>7</Button>
+        <Button onClick={() => dispatch(inputDigit('8'))}>8</Button>
+        <Button onClick={() => dispatch(inputDigit('9'))}>9</Button>
+        <Button onClick={() => dispatch(chooseOperator('-'))}>−</Button>
+        <Button onClick={() => dispatch(inputDigit('4'))}>4</Button>
+        <Button onClick={() => dispatch(inputDigit('5'))}>5</Button>
+        <Button onClick={() => dispatch(inputDigit('6'))}>6</Button>
+        <Button onClick={() => dispatch(chooseOperator('+'))}>+</Button>
+        <Button onClick={() => dispatch(inputDigit('1'))}>1</Button>
+        <Button onClick={() => dispatch(inputDigit('2'))}>2</Button>
+        <Button onClick={() => dispatch(inputDigit('3'))}>3</Button>
+        <Button className='equal' onClick={() => dispatch(calculate())}>=</Button>
+        <Button onClick={() => dispatch(inputDigit('0'))} className="zero">0</Button>
+        <Button onClick={() => dispatch(inputDigit('.'))}>.</Button>
       </div>
     </div>
   );
-}
+};
 
 export default Calculator;
+
