@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/home'
 import Profile from './pages/profile'
@@ -50,8 +48,8 @@ function App() {
         <ProductList />
         <Cart />
         </div> */}
-        {/* <Navbar /> */}
-        {/* <Routes>
+      {/* <Navbar /> */}
+      {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
@@ -78,10 +76,10 @@ function App() {
           <Route path="/product-list" element={<ProductList />} />
           <Route path="/answer-shit" element={<AnswerShit />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} /> */}
-          {/* <Route path="/calculator" element={<Calculator />} /> */}
-        {/* </Routes> */}
-      </div>
-      )
+      {/* <Route path="/calculator" element={<Calculator />} /> */}
+      {/* </Routes> */}
+    </div>
+  )
 }
 
-      export default App
+export default App
