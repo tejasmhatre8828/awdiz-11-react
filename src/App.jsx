@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './pages/home'
 import Profile from './pages/profile'
@@ -33,51 +33,79 @@ import ProductList from './pages/Shopping-cart/listsProduct'
 import Cart from './pages/Shopping-cart/cart'
 import Calculator from './pages/Calculator/Calculator'
 import './CalculatorStyle.css'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import api from "./services/axiosConfig.js"
+import { login } from './Redux/store.js'
 
 
 function App() {
+  const dispatch = useDispatch()
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
+  const user = useSelector((state) => state.counter.user);
+
+  async function getUserData(){
+    try{
+      const response = await api.get("/auth/get-current-user")
+      // const response = await axios.get("http://localhost:8000/api/v1/auth/get-current-user");
+      console.log("user Data", response.data)
+      if(response.data.success){
+        dispatch(login(response.data.user));
+      }
+    } catch(error){
+      console.log("error in fetching user data", error);
+    }
+  }
+
+  useEffect(() => {
+    if(user){
+
+    } else{
+      getUserData()
+    }
+    }, [user])
   return (
     <div>
-      <h1>Calculator</h1>
+      {/* <h1>Calculator</h1> */}
       <div>
-        <Calculator />
+        {/* <Calculator /> */}
       </div>
       {/* <h1>Shopping Cart with Redux</h1>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <ProductList />
         <Cart />
         </div> */}
-      {/* <Navbar /> */}
-      {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/use-state" element={<UseState />} />
-          <Route path="/use-effect" element={<UseEffect />} />
-          <Route path="/use-params" element={<UseParams />} />
-          <Route path="/product/:productId" element={<Product cricketers={users} />} />
-          <Route path="/styled-component" element={<StyledComponent />} />
-          <Route path="/create-fruit" element={<CreateFruit />} />
-          <Route path="/greeting" element={<Greeting name="User" isLoggedIn={false} />} />
-          <Route path="/dynamic-styles" element={<DynamicStyles />} />
-          <Route path="*" element={<PageNotFound />} />
-          <Route path="/fakestore" element={<FakeStore />} />
-          <Route path="/products/:id" element={<SingleProduct />} />
-          <Route path="/use-memo" element={<UseMemo />} />
-          <Route path="/use-callback" element={<UseCallback />} />
-          <Route path="/use-ref" element={<UseRef />} />
-          <Route path="/registrationform" element={<RegistrationForm />} />
-          <Route path="/use-reducer" element={<UseReducer />} />
-          <Route path="/context-counter" element={<ContextCounter />} />
-          <Route path="/countdown-timer" element={<CountDownTimer />} />
-          <Route path="/todo-list" element={<TodoList />} />
-          <Route path="/product-list" element={<ProductList />} />
-          <Route path="/answer-shit" element={<AnswerShit />} />
-          <Route path="/shopping-cart" element={<ShoppingCart />} /> */}
-      {/* <Route path="/calculator" element={<Calculator />} /> */}
-      {/* </Routes> */}
+
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/use-state" element={<UseState />} />
+        <Route path="/use-effect" element={<UseEffect />} />
+        <Route path="/use-params" element={<UseParams />} />
+        <Route path="/product/:productId" element={<Product cricketers={users} />} />
+        <Route path="/styled-component" element={<StyledComponent />} />
+        <Route path="/create-fruit" element={<CreateFruit />} />
+        <Route path="/greeting" element={<Greeting name="User" isLoggedIn={false} />} />
+        <Route path="/dynamic-styles" element={<DynamicStyles />} />
+        <Route path="*" element={<PageNotFound />} />
+        <Route path="/fakestore" element={<FakeStore />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/use-memo" element={<UseMemo />} />
+        <Route path="/use-callback" element={<UseCallback />} />
+        <Route path="/use-ref" element={<UseRef />} />
+        <Route path="/registrationform" element={<RegistrationForm />} />
+        <Route path="/use-reducer" element={<UseReducer />} />
+        <Route path="/context-counter" element={<ContextCounter />} />
+        <Route path="/countdown-timer" element={<CountDownTimer />} />
+        <Route path="/todo-list" element={<TodoList />} />
+        <Route path="/product-list" element={<ProductList />} />
+        <Route path="/answer-shit" element={<AnswerShit />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/calculator" element={<Calculator />} />
+      </Routes>
     </div>
   )
 }

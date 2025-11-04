@@ -1,6 +1,9 @@
+import axios from "axios";
 import Navbar from "../components/navbar";
-import React from "react";
+import React, { useEffect } from "react";
 import react, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // const Register = () => {
 //     const [name, setName] = React.useState("");
@@ -27,8 +30,11 @@ import react, { useState } from "react";
 // };
 
 const Register = () => {
-    const [userData, setUserData] = React.useState({ name: "", email: "", password: "", confirmPassword: "", });
+    const router = useNavigate();
+    const user = useSelector((state) => state.counter.user);
+    console.log(user, "user");
 
+    const [userData, setUserData] = React.useState({ name: "", email: "", password: "", confirmPassword: "", });
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -36,11 +42,22 @@ const Register = () => {
         console.log(event.target.value, event.target.name);
         setUserData({ ...userData, [event.target.name]: event.target.value });
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             if (userData.name && userData.email && userData.password && userData.confirmPassword) {
-                alert("Submitted Successfully!");
+                const response = await axios.post("http://localhost:8000/api/v1/auth/register", userData);
+                if (response.data.success) {
+                    alert(response.data.message);
+                    setUserData({
+                        name: "",
+                        email: "",
+                        password: "",
+                        confirmPassword: ""
+                    })
+                } else {
+                    alert(response.data.message)
+                }
             } else {
                 alert("Please fill all fields");
             };
@@ -54,6 +71,13 @@ const Register = () => {
         //     alert("Password do not match!");
         // };
     }
+
+
+    useEffect(() => {
+        if (user.userId) {
+            router("/")
+        }
+    }, [user])
     const eyeOpen = "https://cdn-icons-png.flaticon.com/512/709/709612.png";
     const eyeClosed = "https://cdn-icons-png.flaticon.com/512/709/709586.png";
     return (
