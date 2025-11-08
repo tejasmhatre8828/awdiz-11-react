@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import react, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import api from "../services/axiosConfig";
 
 // const Register = () => {
 //     const [name, setName] = React.useState("");
@@ -39,14 +40,15 @@ const Register = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleChange = (event) => {
-        console.log(event.target.value, event.target.name);
+        // console.log(event.target.value, event.target.name);
         setUserData({ ...userData, [event.target.name]: event.target.value });
     }
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             if (userData.name && userData.email && userData.password && userData.confirmPassword) {
-                const response = await axios.post("http://localhost:8000/api/v1/auth/register", userData);
+                const response = await api.post("/auth/register", userData);
+
                 if (response.data.success) {
                     alert(response.data.message);
                     setUserData({
@@ -74,7 +76,7 @@ const Register = () => {
 
 
     useEffect(() => {
-        if (user.userId) {
+        if (user?.userId) {
             router("/")
         }
     }, [user])

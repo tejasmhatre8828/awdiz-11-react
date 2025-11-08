@@ -166,7 +166,7 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (user.userId) {
+        if (user?.userId) {
             router("/")
         }
     }, [user])
