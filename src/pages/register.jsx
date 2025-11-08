@@ -35,7 +35,7 @@ const Register = () => {
     const user = useSelector((state) => state.counter.user);
     console.log(user, "user");
 
-    const [userData, setUserData] = React.useState({ name: "", email: "", password: "", confirmPassword: "", });
+    const [userData, setUserData] = React.useState({ name: "", email: "", password: "", confirmPassword: "", role: "" });
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -43,6 +43,10 @@ const Register = () => {
         // console.log(event.target.value, event.target.name);
         setUserData({ ...userData, [event.target.name]: event.target.value });
     }
+
+    const handleChangeRole = (event) => {
+        setUserData({ ...userData, role: event.target.value });
+    };
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -75,11 +79,11 @@ const Register = () => {
     }
 
 
-    useEffect(() => {
-        if (user?.userId) {
-            router("/")
-        }
-    }, [user])
+    // useEffect(() => {
+    //     if (user?.userId) {
+    //         router("/")
+    //     }
+    // }, [user])
     const eyeOpen = "https://cdn-icons-png.flaticon.com/512/709/709612.png";
     const eyeClosed = "https://cdn-icons-png.flaticon.com/512/709/709586.png";
     return (
@@ -87,6 +91,13 @@ const Register = () => {
             <h1>Sign Up</h1>
             <h2>Name: {userData.name} Email: {userData.email} Password: {userData.password} Confirm Password: {userData.confirmPassword}</h2>
             <form onSubmit={handleSubmit}>
+                <label>Role</label>
+                <select onChange={handleChangeRole}>
+                    <option value="user">User</option>
+                    <option value="seller">Seller</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <br />
                 <label>Name</label><br />
                 <input name="name" type="text" value={userData.name} onChange={handleChange} /><br />
 

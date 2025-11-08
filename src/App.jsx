@@ -37,6 +37,8 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import api from "./services/axiosConfig.js"
 import { login } from './Redux/store.js'
+import AddProduct from './components/seller/AddProduct.jsx'
+import ViewProducts from './components/seller/ViewProducts.jsx'
 
 
 function App() {
@@ -44,26 +46,26 @@ function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Rahul"]);
   const user = useSelector((state) => state.counter.user);
 
-  async function getUserData(){
-    try{
+  async function getUserData() {
+    try {
       const response = await api.get("/auth/get-current-user")
       // const response = await axios.get("http://localhost:8000/api/v1/auth/get-current-user");
       console.log("user Data", response.data)
-      if(response.data.success){
+      if (response.data.success) {
         dispatch(login(response.data.user));
       }
-    } catch(error){
+    } catch (error) {
       console.log("error in fetching user data", error);
     }
   }
 
   useEffect(() => {
-    if(user){
+    if (user) {
 
-    } else{
+    } else {
       getUserData()
     }
-    }, [user])
+  }, [user])
   return (
     <div>
       {/* <h1>Calculator</h1> */}
@@ -105,6 +107,12 @@ function App() {
         <Route path="/answer-shit" element={<AnswerShit />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/calculator" element={<Calculator />} />
+
+
+
+        {/* sellers routes  */}
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/view-products" element={<ViewProducts />} />
       </Routes>
     </div>
   )
