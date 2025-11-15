@@ -13,7 +13,7 @@ function Home() {
     return (
         <div>
             <h1>HomePage</h1>
-            <p>Welcome to the web application {user?.name} as a {user?.role}</p>
+            <p>Welcome to the web application {user?.name} {user?.role}</p>
             {/* <div className="sel-btn">
                 <button onClick={() => setShow("effect")}>useEffect</button>
                 <button onClick={() => setShow("state")}>useState</button>

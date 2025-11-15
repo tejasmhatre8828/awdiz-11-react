@@ -14,7 +14,7 @@ import StyledComponent from './pages/02-aug/StyledComponent'
 import CreateFruit from './pages/02-aug/CreateFruit'
 import Greeting from './pages/02-aug/Greeting'
 import DynamicStyles from './pages/03-aug/DynamicStyles'
-import PageNotFound from './pages/06-aug/PageNotFound'
+// import PageNotFound from './pages/06-aug/PageNotFound'
 import FakeStore from './pages/06-aug/FakeStore'
 import SingleProduct from './pages/06-aug/SingleProduct'
 import UseMemo from './pages/10-aug/UseMemo'
@@ -30,15 +30,18 @@ import AnswerShit from './pages/23-aug-test/AnswerShit'
 // import Calculator from './pages/30-aug/Calculator'
 import ShoppingCart from './pages/Shopping-cart/ShopingCart'
 import ProductList from './pages/Shopping-cart/listsProduct'
-import Cart from './pages/Shopping-cart/cart'
+// import Cart from './pages/Shopping-cart/cart'
 import Calculator from './pages/Calculator/Calculator'
 import './CalculatorStyle.css'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import api from "./services/axiosConfig.js"
 import { login } from './Redux/store.js'
 import AddProduct from './components/seller/AddProduct.jsx'
 import ViewProducts from './components/seller/ViewProducts.jsx'
+import ProductDetails from './components/user/ProductDetails.jsx'
+import AllProducts from './components/user/AllProducts.jsx'
+import Cart from "./components/user/Cart";
+
 
 
 function App() {
@@ -87,14 +90,14 @@ function App() {
         <Route path="/use-state" element={<UseState />} />
         <Route path="/use-effect" element={<UseEffect />} />
         <Route path="/use-params" element={<UseParams />} />
-        <Route path="/product/:productId" element={<Product cricketers={users} />} />
+        {/* <Route path="/product/:productId" element={<Product cricketers={users} />} /> */}
         <Route path="/styled-component" element={<StyledComponent />} />
         <Route path="/create-fruit" element={<CreateFruit />} />
         <Route path="/greeting" element={<Greeting name="User" isLoggedIn={false} />} />
         <Route path="/dynamic-styles" element={<DynamicStyles />} />
-        <Route path="*" element={<PageNotFound />} />
+        {/* <Route path="*" element={<PageNotFound />} /> */}
         <Route path="/fakestore" element={<FakeStore />} />
-        <Route path="/products/:id" element={<SingleProduct />} />
+        {/* <Route path="/products/:id" element={<SingleProduct />} /> */}
         <Route path="/use-memo" element={<UseMemo />} />
         <Route path="/use-callback" element={<UseCallback />} />
         <Route path="/use-ref" element={<UseRef />} />
@@ -113,6 +116,12 @@ function App() {
         {/* sellers routes  */}
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/view-products" element={<ViewProducts />} />
+
+        {/* user routes  */}
+        <Route path="/all-product" element={<AllProducts />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        
       </Routes>
     </div>
   )

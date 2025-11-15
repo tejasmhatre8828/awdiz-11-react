@@ -142,6 +142,7 @@ const Login = () => {
                 const response = await api.post("/auth/login", userData);
                 if (response.data.success) {
                     dispatch(login(response.data.user))
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
                     alert(response.data.message);
                     setUserData({
                         email: "",
@@ -165,11 +166,11 @@ const Login = () => {
         // };
     }
 
-    // useEffect(() => {
-    //     if (user?.userId) {
-    //         router("/")
-    //     }
-    // }, [user])
+    useEffect(() => {
+        if (user?.userId) {
+            router("/")
+        }
+    }, [user])
     const eyeOpen = "https://cdn-icons-png.flaticon.com/512/709/709612.png";
     const eyeClosed = "https://cdn-icons-png.flaticon.com/512/709/709586.png";
     return (

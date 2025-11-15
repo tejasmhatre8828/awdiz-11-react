@@ -10,9 +10,7 @@ const SingleProduct = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
 
-    useEffect(() => {
-        axios
-            .get(`https://fakestoreapi.com/products/${id}`)
+    useEffect(() => { axios.get(`https://fakestoreapi.com/products/${id}`)
             .then((response) => {
                 setProduct(response.data);
                 setLoading(false);

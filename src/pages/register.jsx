@@ -79,11 +79,11 @@ const Register = () => {
     }
 
 
-    // useEffect(() => {
-    //     if (user?.userId) {
-    //         router("/")
-    //     }
-    // }, [user])
+    useEffect(() => {
+        if (user?.userId) {
+            router("/")
+        }
+    }, [user])
     const eyeOpen = "https://cdn-icons-png.flaticon.com/512/709/709612.png";
     const eyeClosed = "https://cdn-icons-png.flaticon.com/512/709/709586.png";
     return (
